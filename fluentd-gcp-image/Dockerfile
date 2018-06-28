@@ -35,7 +35,8 @@ RUN BUILD_DEPS="make gcc g++ libc6-dev ruby-dev libffi-dev" \
                      liblz4-1 \
                      ruby \
     && echo 'gem: --no-document' >> /etc/gemrc \
-    && gem install --file Gemfile \
+    && gem install bundler \
+    && bundle install \
     && apt-get purge -y --auto-remove \
                      -o APT::AutoRemove::RecommendsImportant=false \
                      $BUILD_DEPS \
